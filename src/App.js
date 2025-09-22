@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Clock } from "./components/reloj/clock";
 import { MusicController } from "./components/music-controller/music-controller.jsx";
+import { ToDoList } from "./components/todolist/todolist.jsx";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
       </div>
       <div className="music-controller">
         <MusicController />
+      </div>
+      <div className="tasks">
+        <ToDoList />
       </div>
     </div>
   );

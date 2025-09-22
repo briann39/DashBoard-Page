@@ -24,14 +24,6 @@
   border-radius: 1rem;
 }
 
-.title-gadget {
-  position: absolute;
-  color: #616161;
-  font-family: var(--font-title);
-  top: 0;
-  left: 1rem;
-}
-
 .clock .time,
 .date {
   font-size: 200%;

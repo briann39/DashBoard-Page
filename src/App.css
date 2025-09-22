@@ -17,6 +17,10 @@
   grid-area: pomodoro;
 }
 
+.tasks {
+  grid-area: tasks;
+}
+
 .music-controller {
   grid-area: music-controller;
 }
