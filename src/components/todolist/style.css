@@ -27,6 +27,22 @@
   list-style: none;
   padding: 0;
   flex: 1;
+  overflow: auto;
+}
+
+.gadget-todolist .tasks-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gadget-todolist h3 {
+  font-family: var(--font-text);
+  color: var(--color-text-secondary);
+}
+
+.done {
+  background-color: var(--color-orange-b);
 }
 
 .task {
@@ -39,6 +55,23 @@
   padding: 0.25rem;
   border-radius: 0.25rem;
   border: 1px solid var(--color-orange);
+}
+
+.task div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-text);
+  font-size: 0.85rem;
+}
+
+.task button {
+  background-color: var(--color-green);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: var(--color-text-secondary);
+  border: solid 1px var(--color-border);
 }
 
 .task-input {

@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import "./style.css";
+import { YoutubeId } from "../../contexts/videoContext";
 
 export const MusicController = ({ videoId }) => {
   const [player, setPlayer] = useState(null);
+  const [id, setId] = useContext(YoutubeId);
 
   useEffect(() => {
     // cargar el script de la API
@@ -11,14 +13,19 @@ export const MusicController = ({ videoId }) => {
     tag.src = "https://www.youtube.com/iframe_api";
     document.body.appendChild(tag);
 
+    if (window.YT) return;
     // cuando la API está lista
     window.onYouTubeIframeAPIReady = () => {
       const newPlayer = new window.YT.Player("ytplayer", {
         height: "300",
         width: "300",
-        playerVars: {
+        /*playerVars: {
           listType: "playlist",
           list: "RDVbqv6yH9JVo", // 👈 la playlist
+        }*/
+        videoId: id || "Zmd_KO2Lric",
+        playerVars: {
+          playsinline: 1,
         },
         events: {
           onReady: () => console.log("Player listo"),
@@ -27,6 +34,12 @@ export const MusicController = ({ videoId }) => {
       setPlayer(newPlayer);
     };
   }, []);
+
+  useEffect(() => {
+    if (player && id) {
+      player.loadVideoById(id);
+    }
+  }, [id, player]);
 
   return (
     <div className="gadget-music-controller">

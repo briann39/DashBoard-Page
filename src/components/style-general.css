@@ -3,6 +3,8 @@
 :root {
   /* Colores principales (para botones, highlights, alertas) */
   --color-orange: #ff6f00;
+  --color-orange-b: #ff6f0080;
+
   --color-pink: #ff4081;
   --color-yellow: #ffd500;
   --color-green: #00e676;
@@ -28,6 +30,6 @@
   position: absolute;
   color: #616161;
   font-family: var(--font-title);
-  top: 0;
-  left: 1rem;
+  top: -0.5rem;
+  left: 0.5rem;
 }
