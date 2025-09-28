@@ -3,7 +3,7 @@
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas:
-    "chat tasks"
+    "minichatbot tasks"
     "searchMusic tasks"
     "searchMusic tasks"
     "music-controller pomodoro";
@@ -20,6 +20,10 @@
 
 .tasks {
   grid-area: tasks;
+}
+
+.mini-chat-bot {
+  grid-area: minichatbot;
 }
 
 .search-music {

@@ -57,6 +57,7 @@ export const ToDoList = () => {
       )}
       <div className="task-input">
         <input
+          placeholder="Escribe una nueva tarea..."
           type="text"
           value={taskInput}
           onChange={(e) => setTaskInput(e.target.value)}
