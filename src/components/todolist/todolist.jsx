@@ -32,11 +32,12 @@ export const ToDoList = () => {
   const handleOnDragEnd = (result) => {
     if (!result.destination) return;
 
-    const items = Array.from(tasks);
+    const items = Array.from(task);
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
 
-    setTasks(items);
+    setTask(items);
+    localStorage.setItem("Tasks", JSON.stringify(items));
   };
 
   const removeTask = (id) => {
@@ -48,7 +49,11 @@ export const ToDoList = () => {
   };
 
   const checkTask = (id) => {
-    setTask(task.map((e) => (e.id === id ? { ...e, done: !e.done } : e)));
+    const tasks = task.map((e) => (e.id === id ? { ...e, done: !e.done } : e));
+
+    setTask(tasks);
+    localStorage.setItem("Tasks", JSON.stringify(tasks));
+
     console.log(task);
   };
 
@@ -66,7 +71,6 @@ export const ToDoList = () => {
                       <li
                         ref={provided.innerRef}
                         {...provided.draggableProps}
-                        {...provided.dragHandleProps}
                         className={`task ${done ? "done" : ""}`}
                       >
                         <div>
@@ -77,13 +81,23 @@ export const ToDoList = () => {
                           />
                           {content}
                         </div>
-                        <button onClick={() => removeTask(id)}>
-                          <FontAwesomeIcon icon={faTrash} />
-                        </button>
+                        <div>
+                          <button onClick={() => removeTask(id)}>
+                            <FontAwesomeIcon icon={faTrash} />
+                          </button>
+                          {/* Drag handle */}
+                          <span
+                            {...provided.dragHandleProps}
+                            className="drag-handle"
+                          >
+                            ☰
+                          </span>
+                        </div>
                       </li>
                     )}
                   </Draggable>
                 ))}
+                {provided.placeholder}
               </ul>
             )}
           </Droppable>
