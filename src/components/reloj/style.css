@@ -6,52 +6,117 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  background-color: var(--color-bg);
   color: var(--color-text-primary);
   width: 100%;
   height: 100%;
 }
 
-.gadget {
-  position: relative;
-  width: 100%;
-  height: 50%;
+.clock-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: solid 1px var(--color-border);
+  margin-top: 1rem;
+  height: 100%;
+  width: 100%;
+}
+
+.timer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  height: 100%;
+  width: 100%;
+}
+
+.gadget {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--bg-elev);
+  border: solid 1px var(--muted);
   border-radius: 1rem;
+  box-sizing: border-box;
 }
 
 .clock .time,
 .date {
-  font-size: 200%;
+  font-size: 300%;
   text-align: center;
+  color: var(--text-high);
+
   font-family: var(--font-text);
   margin: 0;
+}
+
+.buttons-cicles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.5rem;
+}
+
+.buttons-cicles button {
+  background-color: transparent;
+  padding: 0.5rem 1.5rem;
+  border: solid 1px var(--muted);
+  font-size: 1rem;
+  color: var(--text-high);
+  font-family: var(--font-title);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.buttons-cicles button:active {
+  transform: scale(0.9);
+}
+
+.buttons-cicles button:hover {
+  background-color: var(--primary-700);
+}
+
+.buttons-cicles .active {
+  background-color: var(--primary);
+  color: black;
 }
 
 .pomodoro .timer {
-  font-size: 200%;
+  font-size: 300%;
   text-align: center;
+  color: var(--text-high);
   font-family: var(--font-text);
   margin: 0;
 }
 
-.pomodoro button {
+.buttons-box button {
   padding: 0.5rem 1.5rem;
-  font-weight: bold;
   font-family: var(--font-title);
   font-size: 1rem;
   border-radius: 0.5rem;
-  background-color: var(--color-green);
-  border: solid 1px var(--color-border);
+  background-color: var(--primary);
+  border: solid 1px var(--muted);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.buttons-box button:hover {
+  background-color: var(--primary-700);
+}
+
+.buttons-box button:active {
+  transform: scale(0.9);
 }
 
 .pomodoro .buttons-box {
   display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 0.5rem;
 }

@@ -1,8 +1,9 @@
 .app {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr auto;
   grid-template-areas:
+    "minichatbot tasks"
     "minichatbot tasks"
     "searchMusic tasks"
     "searchMusic tasks"
@@ -12,6 +13,7 @@
   height: 100vh;
   padding: 1rem;
   box-sizing: border-box;
+  background-color: var(--bg);
 }
 
 .pomodoro {

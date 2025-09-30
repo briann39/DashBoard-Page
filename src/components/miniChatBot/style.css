@@ -4,12 +4,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background-color: var(--color-bg);
-  color: var(--color-text-primary);
-  border: solid 1px var(--color-border);
+  gap: 1rem;
+  background-color: var(--bg-elev);
+  color: var(--text-medium);
+  border: solid 1px var(--muted);
   border-radius: 1rem;
   box-sizing: border-box;
-  padding: 2rem 0.5rem 0.5rem 0.5rem;
+  padding: 2rem 1rem 1rem 1rem;
   width: 100%;
   height: 100%;
 }
@@ -26,22 +27,30 @@
   flex: 1;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  border: solid 1px var(--color-green);
+  border: solid 1px var(--muted);
+  background-color: var(--bg);
+  color: var(--text-high);
 }
 
 .form-chat button {
-  background-color: var(--color-green);
+  background-color: var(--primary);
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
-  color: var(--color-text-secondary);
-  border: solid 1px var(--color-border);
+  border: solid 1px var(--muted);
+  cursor: pointer;
+  transition: background-color 0.5 ease;
+}
+
+.form-chat button:hover {
+  cursor: pointer;
+
+  background-color: var(--primary-700);
 }
 
 .messages-box {
   position: relative;
   font-family: var(--font-text);
-  color: var(--color-text-secondary);
-
+  color: var(--color-medium);
   font-size: 0.85rem;
   display: flex;
   flex-direction: column;
@@ -55,21 +64,23 @@
   width: 50%;
   right: 0;
   border-radius: 0.5rem;
-  background-color: var(--color-green);
+  font-size: 1rem;
+  background-color: var(--primary);
+  color: var(--text-high);
   padding: 0.5rem 0.5rem;
+  box-sizing: border-box;
 }
 
 .chatbot-message {
+  box-sizing: border-box;
   width: 100%;
-  max-height: 8rem;
+  font-size: 1rem;
   left: 0;
-  top: 2.5rem;
   padding: 0.5rem 0.5rem;
 
   border-radius: 0.5rem;
   z-index: 1;
-  border: solid 1px var(--color-green);
-  background-color: var();
+  border: solid 1px var(--primary);
 }
 
 .messages-box p {

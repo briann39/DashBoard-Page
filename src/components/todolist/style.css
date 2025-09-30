@@ -6,14 +6,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-bg);
-  color: var(--color-text-primary);
-  border: solid 1px var(--color-border);
+  background-color: var(--bg-elev);
+  color: var(--text-high);
+  border: solid 1px var(--muted);
   border-radius: 1rem;
   box-sizing: border-box;
 
-  padding: 2rem 0.5rem 0.5rem 0.5rem;
+  padding: 1rem 1rem 1rem 1rem;
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   height: 100%;
 }
 
@@ -27,7 +29,7 @@
   list-style: none;
   padding: 0;
   flex: 1;
-  overflow: auto;
+  overflow-x: hidden; /* 🚫 bloquea scroll horizontal */
 }
 
 .gadget-todolist .tasks-empty {
@@ -38,11 +40,11 @@
 
 .gadget-todolist h3 {
   font-family: var(--font-text);
-  color: var(--color-text-secondary);
+  color: var(--color-text-);
 }
 
 .done {
-  background-color: var(--color-orange-b);
+  background-color: var(--primary-700);
 }
 
 .task {
@@ -54,7 +56,7 @@
   box-sizing: border-box;
   padding: 0.25rem;
   border-radius: 0.25rem;
-  border: 1px solid var(--color-orange);
+  border: 1px solid var(--primary);
 }
 
 .task div {
@@ -66,12 +68,21 @@
   font-size: 0.85rem;
 }
 
+.gadget-todolist li {
+  width: 100%;
+  box-sizing: border-box; /* que respete el padding */
+  overflow: hidden; /* por si el contenido se pasa */
+}
+
+#task {
+  overflow-x: hidden;
+}
+
 .task button {
-  background-color: var(--color-green);
+  background-color: var(--primary);
   border-radius: 0.5rem;
   padding: 0.5rem;
-  color: var(--color-text-secondary);
-  border: solid 1px var(--color-border);
+  border: solid 1px var(--muted);
 }
 
 .task-input {
@@ -84,8 +95,10 @@
   width: 100%;
   padding: 0.5rem;
   border-radius: 0.5rem;
+  color: var(--text-high);
+  background-color: var(--bg);
   font-family: var(--font-text);
-  border: solid 1px var(--color-green);
+  border: solid 1px var(--muted);
 }
 
 .task-input button {
@@ -94,6 +107,6 @@
 
   font-size: 0.8rem;
   border-radius: 0.5rem;
-  background-color: var(--color-green);
-  border: solid 1px var(--color-border);
+  background-color: var(--primary);
+  border: solid 1px var(--muted);
 }

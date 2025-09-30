@@ -12,6 +12,22 @@
 
   --color-purple: #6200ea;
 
+  --bg: #0b0f14;
+  --bg-elev: #11161b;
+  --surface: #151a20;
+  --muted: #22272d;
+
+  --text-high: #e6eef3;
+  --text-medium: #a9b3bd;
+  --text-faint: #7e8a94;
+
+  --primary: #4ea8ff;
+  --primary-700: #2e8ce6;
+  --accent: #9b7dff;
+
+  --success: #46dca3;
+  --warning: #ffb86b;
+  --danger: #ff6b6b;
   /* Fondos y textos para tema claro */
   --color-bg: #ffffff; /* fondo general */
   --color-card-bg: #f5f5f5; /* tarjetas o módulos */
@@ -28,8 +44,8 @@
 
 .title-gadget {
   position: absolute;
-  color: #616161;
+  color: var(--text-high);
   font-family: var(--font-title);
   top: -0.5rem;
-  left: 0.5rem;
+  left: 1rem;
 }
