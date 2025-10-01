@@ -11,11 +11,11 @@
   border: solid 1px var(--muted);
   border-radius: 1rem;
   box-sizing: border-box;
-  padding: 1rem 1rem 1rem 1rem;
+  padding: 1rem;
   width: 100%;
   max-width: 100%;
   height: 100%;
-  max-height: 80vh;
+  max-height: 100vh;
 }
 
 .gadget-todolist ul {
@@ -24,12 +24,10 @@
   align-items: center;
   gap: 0.5rem;
   width: 100%;
-  height: 100%;
-  box-sizing: border-box;
+  flex: 1; /* ocupa todo el espacio sobrante */
   list-style: none;
   padding: 0 5px 0 0;
-  overflow: auto;
-  flex: 1;
+  overflow-y: auto;
 }
 
 .gadget-todolist ul::-webkit-scrollbar {
@@ -67,17 +65,57 @@
   background-color: var(--primary-700);
 }
 
+.add-category {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: absolute;
+  background-color: var(--bg);
+  border: solid 1px var(--muted);
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+}
+
+.add-category .input-text {
+  border-radius: 0.5rem;
+  color: var(--text-high);
+  border: solid 1px var(--muted);
+  background-color: var(--bg-elev);
+  padding: 0.5rem;
+}
+
+.add-category button {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: solid 1px var(--muted);
+  background-color: var(--primary);
+  font-family: var(--font-text);
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.color-category {
+  width: 5px;
+  height: 10rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
 .task {
+  position: relative;
   margin: 0;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 0.25rem;
+  overflow: hidden;
+  height: 3rem;
+  padding: 0.25rem 0 0.25rem 0.5rem;
   border-radius: 0.25rem;
-  height: fit-content;
-  user-select: none; /* evita selección de texto al arrastrar */
+  user-select: none;
   border: 1px solid var(--primary);
 }
 
@@ -89,6 +127,7 @@
   font-family: var(--font-text);
   font-size: 0.85rem;
 }
+
 .drag-handle {
   cursor: grab;
   margin-right: 8px;
@@ -96,7 +135,8 @@
 
 .gadget-todolist li {
   width: 100%;
-  box-sizing: border-box; /* que respete el padding */
+  box-sizing: border-box;
+  flex-shrink: 0; /* evita que se achiquen */
 }
 
 .task button {
@@ -127,7 +167,6 @@
 .task-input button {
   padding: 0.5rem 1.5rem;
   font-family: var(--font-text);
-
   font-size: 0.8rem;
   border-radius: 0.5rem;
   background-color: var(--primary);

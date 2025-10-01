@@ -8,7 +8,8 @@ export const Searchmusic = () => {
   const apiKey = process.env.REACT_APP_YT_API_KEY;
   const [id, setId] = useContext(YoutubeId);
 
-  const search = async (query) => {
+  const search = async (query, e) => {
+    e.preventDefault();
     try {
       const res = await fetch(
         `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&type=video&maxResults=25&key=${apiKey}`
@@ -29,15 +30,16 @@ export const Searchmusic = () => {
   return (
     <div className="gadget-search-music">
       <p className="title-gadget">Buscar Cancion</p>
-      <form className="form-search-music" action={() => search(searchInput)}>
+      <form
+        className="form-search-music"
+        onSubmit={(e) => search(searchInput, e)}
+      >
         <input
           placeholder="Buscar canción..."
           type="text"
           onChange={(e) => setSearchInput(e.target.value)}
         />
-        <button type="submit" onClick={() => search(searchInput)}>
-          Buscar
-        </button>
+        <button type="submit">Buscar</button>
       </form>
       <ul>
         {videos.map((e) => {
