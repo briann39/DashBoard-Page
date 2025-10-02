@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import "./style.css";
 import { YoutubeId, Playlists } from "../../contexts/videoContext";
 
+import Select, { components } from "react-select";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCirclePlus,
@@ -15,6 +17,7 @@ export const Searchmusic = () => {
   const apiKey = process.env.REACT_APP_YT_API_KEY;
   const [id, setId] = useContext(YoutubeId);
 
+  const [selected, setSelected] = useState("");
   const [playlist, setPlaylist] = useContext(Playlists);
 
   const [searchActive, setSearchActive] = useState(true);
@@ -99,28 +102,78 @@ export const Searchmusic = () => {
         })}
       </ul>
       <ul style={{ display: searchActive ? "none" : "block" }}>
-        {playlist.map((o, i) => (
-          <div key={i}>
-            <h3>{o.name}</h3>
-            <ul>
-              {o.list.map((e, j) => {
-                return (
-                  <li
-                    key={j}
-                    onClick={() => updateVideo(e.id.videoId)}
-                    className="video-item"
-                  >
-                    <img src={e.snippet.thumbnails.high.url} alt="" />
-                    <div className="description-video">
-                      <h3>{e.snippet.title}</h3>
-                      <p>{e.snippet.description}</p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        ))}
+        <Select
+          styles={{
+            control: (base) => ({
+              ...base,
+              width: "10rem", // control angosto
+              backgroundColor: "var(--bg)",
+              border: "solid 1px var(--muted)",
+            }),
+            menu: (base) => ({
+              ...base,
+              width: "10rem", // menú más ancho
+              backgroundColor: "var(--bg)",
+              border: "solid 1px var(--muted)",
+              borderRadius: "0.5rem",
+              marginTop: "0.5rem",
+            }),
+            singleValue: (provided) => ({
+              ...provided,
+              color: "var(--text-high)",
+              fontFamily: "var(--font-title)",
+              fontWeight: "500",
+            }),
+            option: (provided, state) => ({
+              ...provided,
+              boxContent: "border-box",
+              backgroundColor: state.isFocused
+                ? "var(--primary-700)"
+                : state.isSelected
+                ? "var(--Primary)"
+                : "transparent",
+              color: state.isSelected ? "var(--bg-eleved)" : "var(--text-high)",
+              fontFamily: "var(--font-text)",
+            }),
+          }}
+          classNamePrefix="myselect"
+          value={selected} // opción seleccionada
+          onChange={(e) => {
+            console.log(e);
+            if (e.value === "add") {
+              console.log("hola");
+            } else {
+              setSelected(e);
+            }
+          }} // se llama al cambiar
+          options={playlist} // lista de opciones
+        />
+
+        {playlist.map((o, i) => {
+          if (o === selected)
+            return (
+              <div key={i}>
+                <h3>{o.name}</h3>
+                <ul>
+                  {o.list.map((e, j) => {
+                    return (
+                      <li
+                        key={j}
+                        onClick={() => updateVideo(e.id.videoId)}
+                        className="video-item"
+                      >
+                        <img src={e.snippet.thumbnails.high.url} alt="" />
+                        <div className="description-video">
+                          <h3>{e.snippet.title}</h3>
+                          <p>{e.snippet.description}</p>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            );
+        })}
       </ul>
     </div>
   );

@@ -1,7 +1,7 @@
-import React, { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faL, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import Select, { components } from "react-select";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
@@ -272,6 +272,7 @@ export const ToDoList = () => {
                 setSelected(e);
               }
             }} // se llama al cambiar
+            menuPlacement="top"
             options={sortedOptions} // lista de opciones
           />
           <input

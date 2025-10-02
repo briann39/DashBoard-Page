@@ -16,7 +16,13 @@ export const Playlists = createContext();
 export const PlaylistsProvider = ({ children }) => {
   const [Playlist, setPlaylist] = useState([
     {
-      name: "Mi mix",
+      value: "Mi mix",
+      label: "Mi mix",
+      list: [],
+    },
+    {
+      value: "Triste",
+      label: "Triste",
       list: [
         {
           kind: "youtube#searchResult",
