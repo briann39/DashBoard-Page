@@ -1,13 +1,10 @@
 .app {
   display: grid;
-  grid-template-columns: 2fr 2fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-template-areas:
-    "minichatbot tasks"
-    "minichatbot tasks"
-    "searchMusic tasks"
-    "searchMusic tasks"
-    "music-controller pomodoro";
+    "minichatbot searchMusic tasks music-controller"
+    "minichatbot searchMusic tasks pomodoro";
   gap: 1rem;
   width: 100%;
   height: 100vh;

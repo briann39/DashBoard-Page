@@ -17,6 +17,8 @@ export const Searchmusic = () => {
 
   const [playlist, setPlaylist] = useContext(Playlists);
 
+  const [searchActive, setSearchActive] = useState(true);
+
   const search = async (query, e) => {
     e.preventDefault();
     try {
@@ -48,6 +50,20 @@ export const Searchmusic = () => {
   return (
     <div className="gadget-search-music">
       <p className="title-gadget">Buscar Cancion</p>
+      <div className="buttons-container">
+        <button
+          className={`button-menu ${searchActive ? "active" : ""}`}
+          onClick={() => setSearchActive(true)}
+        >
+          Buscador
+        </button>
+        <button
+          className={`button-menu ${!searchActive ? "active" : ""}`}
+          onClick={() => setSearchActive(false)}
+        >
+          Playlists
+        </button>
+      </div>
       <form
         className="form-search-music"
         onSubmit={(e) => search(searchInput, e)}
@@ -59,7 +75,7 @@ export const Searchmusic = () => {
         />
         <button type="submit">Buscar</button>
       </form>
-      <ul>
+      <ul style={{ display: searchActive ? "block" : "none" }}>
         {videos.map((e) => {
           return (
             <li
@@ -82,7 +98,7 @@ export const Searchmusic = () => {
           );
         })}
       </ul>
-      <ul>
+      <ul style={{ display: searchActive ? "none" : "block" }}>
         {playlist.map((o, i) => (
           <div key={i}>
             <h3>{o.name}</h3>

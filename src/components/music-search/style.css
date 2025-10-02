@@ -88,6 +88,39 @@
   justify-content: center;
   text-align: left;
 }
+.buttons-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.buttons-container button {
+  background-color: transparent;
+  padding: 0.5rem 1.5rem;
+  border: solid 1px var(--muted);
+  font-size: 1rem;
+  color: var(--text-high);
+  font-family: var(--font-title);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.buttons-container button:active {
+  transform: scale(0.9);
+}
+
+.buttons-container button:hover {
+  background-color: var(--primary-700);
+}
+
+.buttons-container .active {
+  background-color: var(--primary);
+  color: black;
+}
 
 .description-video h3 {
   width: 100%;
