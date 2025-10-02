@@ -37,11 +37,15 @@ export const Searchmusic = () => {
     }
   };
 
-  const addToPlaylist = (playlistindex, newitem) => {
+  const recVideotoPlaylist = () => {};
+
+  const addToPlaylist = (playlistName, newitem) => {
     setPlaylist((prev) =>
-      prev.map((pl, i) =>
-        i === playlistindex ? { ...pl, list: [...pl.list, newitem] } : pl
-      )
+      prev.map((pl, i) => {
+        return pl.value === playlistName
+          ? { ...pl, list: [...pl.list, newitem] }
+          : pl;
+      })
     );
     console.log(playlist);
   };
@@ -52,7 +56,7 @@ export const Searchmusic = () => {
 
   return (
     <div className="gadget-search-music">
-      <p className="title-gadget">Buscar Cancion</p>
+      <p className="title-gadget">Videos y Playlists</p>
       <div className="buttons-container">
         <button
           className={`button-menu ${searchActive ? "active" : ""}`}
@@ -68,6 +72,7 @@ export const Searchmusic = () => {
         </button>
       </div>
       <form
+        style={{ display: searchActive ? "flex" : "none" }}
         className="form-search-music"
         onSubmit={(e) => search(searchInput, e)}
       >
@@ -78,35 +83,98 @@ export const Searchmusic = () => {
         />
         <button type="submit">Buscar</button>
       </form>
-      <ul style={{ display: searchActive ? "block" : "none" }}>
-        {videos.map((e) => {
-          return (
-            <li
-              key={e.id.videoId}
-              onClick={() => updateVideo(e.id.videoId)}
-              className="video-item"
-            >
-              <img src={e.snippet.thumbnails.high.url} alt="" />
-              <div className="description-video">
-                <h3>{e.snippet.title}</h3>
-                <p>{e.snippet.description}</p>
-                <button
-                  onClick={() => addToPlaylist(0, e)}
-                  className="add-to-playlist"
+      {videos.length > 0 ? (
+        <ul style={{ display: searchActive ? "block" : "none" }}>
+          {videos.map((e) => {
+            return (
+              <div className="video-container">
+                <li
+                  key={e.id.videoId}
+                  onClick={() => updateVideo(e.id.videoId)}
+                  className="video-item"
                 >
-                  <FontAwesomeIcon icon={faCirclePlus} />
-                </button>
+                  <img src={e.snippet.thumbnails.high.url} alt="" />
+                  <div className="description-video">
+                    <h3>{e.snippet.title}</h3>
+                    <p>{e.snippet.description}</p>
+                  </div>
+                </li>
+                <Select
+                  isSearchable={false}
+                  menuPlacement="bottom"
+                  menuPosition="fixed"
+                  styles={{
+                    control: (base) => ({
+                      ...base,
+                      width: "fit-content", // control angosto
+                      backgroundColor: "var(--bg)",
+                      margin: "0.5rem",
+                      padding: "0 5px",
+                      border: "solid 1px var(--muted)",
+                    }),
+                    menu: (base) => ({
+                      ...base,
+                      width: "10rem", // menú más ancho
+                      backgroundColor: "var(--bg)",
+                      border: "solid 1px var(--muted)",
+                      borderRadius: "0.5rem",
+                      marginTop: "0.5rem",
+                    }),
+                    singleValue: (provided) => ({
+                      ...provided,
+                      color: "var(--text-high)",
+                      fontFamily: "var(--font-title)",
+                      fontWeight: "500",
+                    }),
+                    option: (provided, state) => ({
+                      ...provided,
+                      boxContent: "border-box",
+                      backgroundColor: state.isFocused
+                        ? "var(--primary-700)"
+                        : state.isSelected
+                        ? "var(--Primary)"
+                        : "transparent",
+                      color: state.isSelected
+                        ? "var(--bg-eleved)"
+                        : "var(--text-high)",
+                      fontFamily: "var(--font-text)",
+                    }),
+                  }}
+                  value={null}
+                  placeholder="+"
+                  classNamePrefix="myselect"
+                  components={{
+                    DropdownIndicator: () => null,
+                    IndicatorSeparator: () => null,
+                  }}
+                  // el value debe ser el objeto con { value, label }
+                  onChange={(selected) => addToPlaylist(selected.value, e)}
+                  options={playlist} // lista de opciones />
+                />
               </div>
-            </li>
-          );
-        })}
-      </ul>
+            );
+          })}
+        </ul>
+      ) : (
+        <p
+          style={{ display: searchActive ? "flex" : "none" }}
+          className="label-notSearch"
+        >
+          Busca un video...
+        </p>
+      )}
+
       <ul style={{ display: searchActive ? "none" : "block" }}>
         <Select
+          sx={{ width: 200 }}
           styles={{
             control: (base) => ({
               ...base,
+              boxSizing: "border-box",
+
               width: "10rem", // control angosto
+              minWidth: "10rem",
+              maxWidth: "10rem",
               backgroundColor: "var(--bg)",
               border: "solid 1px var(--muted)",
             }),
@@ -120,6 +188,10 @@ export const Searchmusic = () => {
             }),
             singleValue: (provided) => ({
               ...provided,
+              maxWidth: "100%", // no permite que se salga del control
+              overflow: "hidden",
+              textOverflow: "ellipsis", // corta con "..."
+              whiteSpace: "nowrap",
               color: "var(--text-high)",
               fontFamily: "var(--font-title)",
               fontWeight: "500",
