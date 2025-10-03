@@ -171,7 +171,6 @@ export const Searchmusic = () => {
             control: (base) => ({
               ...base,
               boxSizing: "border-box",
-
               width: "10rem", // control angosto
               minWidth: "10rem",
               maxWidth: "10rem",
@@ -232,7 +231,7 @@ export const Searchmusic = () => {
                       <li
                         key={j}
                         onClick={() => updateVideo(e.id.videoId)}
-                        className="video-item"
+                        className="video-item video-container"
                       >
                         <img src={e.snippet.thumbnails.high.url} alt="" />
                         <div className="description-video">

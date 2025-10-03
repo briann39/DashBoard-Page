@@ -3,8 +3,8 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
-    "minichatbot searchMusic tasks music-controller"
-    "minichatbot searchMusic tasks pomodoro";
+    "minichatbot tasks searchMusic  music-controller"
+    "minichatbot tasks searchMusic pomodoro";
   gap: 1rem;
   width: 100%;
   height: 100vh;

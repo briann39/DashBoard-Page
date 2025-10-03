@@ -25,6 +25,10 @@
   gap: 1.5rem;
   overflow: auto;
 }
+
+ul {
+  box-sizing: border-box;
+}
 .form-search-music {
   display: flex;
   justify-content: center;
@@ -112,7 +116,7 @@
 
 .video-container {
   margin-right: 0.5rem;
-
+  box-sizing: border-box;
   display: flex;
   border-radius: 0.5rem;
 }

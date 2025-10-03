@@ -78,6 +78,8 @@ export const MusicController = () => {
       <div className="buttons-controller">
         <p className="title-gadget">Musica</p>
         <button onClick={togglePause}>{pauseVideo ? "⏸" : "▶"}</button>
+
+        <button onClick={() => player && player.stopVideo()}>⏹ Stop</button>
         <Select
           options={playlist}
           styles={{
@@ -118,7 +120,6 @@ export const MusicController = () => {
           }}
           onChange={(selected) => runPlaylist(selected.value)}
         />
-        <button onClick={() => player && player.stopVideo()}>⏹ Stop</button>
       </div>
     </div>
   );

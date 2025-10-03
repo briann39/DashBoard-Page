@@ -150,13 +150,24 @@
 
 .task-input {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  box-sizing: border-box;
   width: 100%;
+}
+
+.task-input .button-cont {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .task-input input {
   width: 100%;
   padding: 0.5rem;
+  box-sizing: border-box;
   border-radius: 0.5rem;
   color: var(--text-high);
   background-color: var(--bg);
@@ -167,6 +178,7 @@
 .task-input button {
   padding: 0.5rem 1.5rem;
   font-family: var(--font-text);
+  flex: 1;
   font-size: 0.8rem;
   border-radius: 0.5rem;
   background-color: var(--primary);

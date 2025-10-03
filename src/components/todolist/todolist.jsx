@@ -224,64 +224,71 @@ export const ToDoList = () => {
         )}
 
         <form onSubmit={addTask} className="task-input">
-          <Select
-            components={{ SingleValue, Option, Placeholder: CustomPlaceholder }}
-            styles={{
-              control: (base) => ({
-                ...base,
-                width: "5rem", // control angosto
-                backgroundColor: "var(--bg)",
-                border: "solid 1px var(--muted)",
-              }),
-              menu: (base) => ({
-                ...base,
-                width: "10rem", // menú más ancho
-                backgroundColor: "var(--bg)",
-                border: "solid 1px var(--muted)",
-                borderRadius: "0.5rem",
-                marginTop: "0.5rem",
-              }),
-              singleValue: (provided) => ({
-                ...provided,
-                color: "var(--text-high)",
-                fontFamily: "var(--font-title)",
-                fontWeight: "500",
-              }),
-              option: (provided, state) => ({
-                ...provided,
-                boxContent: "border-box",
-                backgroundColor: state.isFocused
-                  ? "var(--primary-700)"
-                  : state.isSelected
-                  ? "var(--Primary)"
-                  : "transparent",
-                color: state.isSelected
-                  ? "var(--bg-eleved)"
-                  : "var(--text-high)",
-                fontFamily: "var(--font-text)",
-              }),
-            }}
-            classNamePrefix="myselect"
-            value={selected} // opción seleccionada
-            onChange={(e) => {
-              console.log(e);
-              if (e.value === "add") {
-                console.log("hola");
-                setShowCategory(true);
-              } else {
-                setSelected(e);
-              }
-            }} // se llama al cambiar
-            menuPlacement="top"
-            options={sortedOptions} // lista de opciones
-          />
           <input
             placeholder="Escribe una nueva tarea..."
             type="text"
             value={taskInput}
             onChange={(e) => setTaskInput(e.target.value)}
           />
-          <button type="submit">Agregar</button>
+          <div className="button-cont">
+            <Select
+              components={{
+                SingleValue,
+                Option,
+                Placeholder: CustomPlaceholder,
+              }}
+              styles={{
+                control: (base) => ({
+                  ...base,
+                  width: "5rem", // control angosto
+                  backgroundColor: "var(--bg)",
+                  border: "solid 1px var(--muted)",
+                }),
+                menu: (base) => ({
+                  ...base,
+                  width: "10rem", // menú más ancho
+                  backgroundColor: "var(--bg)",
+                  border: "solid 1px var(--muted)",
+                  borderRadius: "0.5rem",
+                  marginTop: "0.5rem",
+                }),
+                singleValue: (provided) => ({
+                  ...provided,
+                  color: "var(--text-high)",
+                  fontFamily: "var(--font-title)",
+                  fontWeight: "500",
+                }),
+                option: (provided, state) => ({
+                  ...provided,
+                  boxContent: "border-box",
+                  backgroundColor: state.isFocused
+                    ? "var(--primary-700)"
+                    : state.isSelected
+                    ? "var(--Primary)"
+                    : "transparent",
+                  color: state.isSelected
+                    ? "var(--bg-eleved)"
+                    : "var(--text-high)",
+                  fontFamily: "var(--font-text)",
+                }),
+              }}
+              classNamePrefix="myselect"
+              value={selected} // opción seleccionada
+              onChange={(e) => {
+                console.log(e);
+                if (e.value === "add") {
+                  console.log("hola");
+                  setShowCategory(true);
+                } else {
+                  setSelected(e);
+                }
+              }} // se llama al cambiar
+              menuPlacement="top"
+              options={sortedOptions} // lista de opciones
+            />
+
+            <button type="submit">Agregar</button>
+          </div>
         </form>
       </div>
     </DragDropContext>

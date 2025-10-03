@@ -8,7 +8,8 @@ export const MiniChatBot = () => {
   const [userMessage, setUserMessage] = useState("Hola, que tal...");
   const [resMessage, setResMessage] = useState("Hola soy Tu Chat Bot...");
 
-  const handleMessage = async () => {
+  const handleMessage = async (e) => {
+    e.preventDefault();
     if (!inputMessage.trim()) return;
 
     const messageUser = { role: "user", content: inputMessage };
@@ -42,7 +43,7 @@ export const MiniChatBot = () => {
           </div>
         </div>
       </div>
-      <form className="form-chat" action={handleMessage}>
+      <form className="form-chat" onSubmit={handleMessage}>
         <input
           onChange={(e) => setInputMessage(e.target.value)}
           placeholder="Escribe un mensaje..."
