@@ -4,16 +4,19 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { PlaylistsProvider, YoutubeIdProvider } from "./contexts/videoContext";
+import { NotificationProvider } from "./contexts/notificationContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <PlaylistsProvider>
-    <YoutubeIdProvider>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </YoutubeIdProvider>
-  </PlaylistsProvider>
+  <NotificationProvider>
+    <PlaylistsProvider>
+      <YoutubeIdProvider>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </YoutubeIdProvider>
+    </PlaylistsProvider>
+  </NotificationProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

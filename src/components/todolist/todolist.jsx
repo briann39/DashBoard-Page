@@ -6,6 +6,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import Select, { components } from "react-select";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import "./style.css";
+import { useNotification } from "../../contexts/notificationContext";
 
 export const ToDoList = () => {
   const [task, setTask] = useState([]);
@@ -20,6 +21,8 @@ export const ToDoList = () => {
   const [showCategory, setShowCategory] = useState(false);
   const [color, setColor] = useState("");
   const [nameCat, setNameCat] = useState("");
+
+  const { showNotification } = useNotification();
 
   useEffect(() => {
     const saved = localStorage.getItem("Tasks");
@@ -44,6 +47,7 @@ export const ToDoList = () => {
         ...cats,
         { value: nameCat, label: nameCat, color: color },
       ];
+      showNotification("Categorica creada correctamente", "success");
 
       setCats(categorys);
       setShowCategory(false);
@@ -105,6 +109,8 @@ export const ToDoList = () => {
         ...task,
         { id: task.length + 1, content: taskInput, category: selected.value },
       ];
+      showNotification("Tarea agregada correctamente", "success");
+
       setTask(newTask);
       localStorage.setItem("Tasks", JSON.stringify(newTask));
       console.log(task);
@@ -125,6 +131,7 @@ export const ToDoList = () => {
 
   const removeTask = (id) => {
     console.log(id);
+    showNotification("Tarea eliminada correctamente", "success");
 
     const deleteTask = task.filter((e) => e.id !== id);
     setTask(deleteTask);

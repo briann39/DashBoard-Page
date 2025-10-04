@@ -1,21 +1,13 @@
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
+
 import { Clock } from "./components/reloj/clock";
 import { MusicController } from "./components/music-controller/music-controller.jsx";
 import { ToDoList } from "./components/todolist/todolist.jsx";
 import { Searchmusic } from "./components/music-search/music-search.jsx";
 import { MiniChatBot } from "./components/miniChatBot/mini-chatbot.jsx";
-import { useEffect } from "react";
 
-function App() {
-  useEffect(() => {
-    if ("Notification" in window) {
-      Notification.requestPermission().then((perm) => {
-        console.log("Permiso de notificación:", perm);
-      });
-    }
-  }, []);
-
+const App = () => {
   return (
     <div className="app">
       <div className="pomodoro">
@@ -35,6 +27,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;

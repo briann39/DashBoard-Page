@@ -10,6 +10,8 @@ import {
   faListUl,
   faMusic,
 } from "@fortawesome/free-solid-svg-icons";
+import App from "../../App";
+import { useNotification } from "../../contexts/notificationContext";
 
 export const Searchmusic = () => {
   const [videos, setVideos] = useState([]);
@@ -21,7 +23,7 @@ export const Searchmusic = () => {
   const [playlist, setPlaylist] = useContext(Playlists);
 
   const [searchActive, setSearchActive] = useState(true);
-
+  const { showNotification } = useNotification();
   const search = async (query, e) => {
     e.preventDefault();
     try {
@@ -47,7 +49,7 @@ export const Searchmusic = () => {
           : pl;
       })
     );
-    console.log(playlist);
+    showNotification("✅ Video agregado agregado a " + playlistName, "success");
   };
 
   const updateVideo = (videoId) => {
@@ -163,63 +165,62 @@ export const Searchmusic = () => {
           Busca un video...
         </p>
       )}
-
+      <Select
+        sx={{ width: 200 }}
+        styles={{
+          control: (base) => ({
+            ...base,
+            display: searchActive ? "none" : "flex",
+            boxSizing: "border-box",
+            width: "10rem", // control angosto
+            minWidth: "10rem",
+            maxWidth: "10rem",
+            backgroundColor: "var(--bg)",
+            border: "solid 1px var(--muted)",
+          }),
+          menu: (base) => ({
+            ...base,
+            width: "10rem", // menú más ancho
+            backgroundColor: "var(--bg)",
+            border: "solid 1px var(--muted)",
+            borderRadius: "0.5rem",
+            marginTop: "0.5rem",
+          }),
+          singleValue: (provided) => ({
+            ...provided,
+            maxWidth: "100%", // no permite que se salga del control
+            overflow: "hidden",
+            textOverflow: "ellipsis", // corta con "..."
+            whiteSpace: "nowrap",
+            color: "var(--text-high)",
+            fontFamily: "var(--font-title)",
+            fontWeight: "500",
+          }),
+          option: (provided, state) => ({
+            ...provided,
+            boxContent: "border-box",
+            backgroundColor: state.isFocused
+              ? "var(--primary-700)"
+              : state.isSelected
+              ? "var(--Primary)"
+              : "transparent",
+            color: state.isSelected ? "var(--bg-eleved)" : "var(--text-high)",
+            fontFamily: "var(--font-text)",
+          }),
+        }}
+        classNamePrefix="myselect"
+        value={selected} // opción seleccionada
+        onChange={(e) => {
+          console.log(e);
+          if (e.value === "add") {
+            console.log("hola");
+          } else {
+            setSelected(e);
+          }
+        }} // se llama al cambiar
+        options={playlist} // lista de opciones
+      />
       <ul style={{ display: searchActive ? "none" : "block" }}>
-        <Select
-          sx={{ width: 200 }}
-          styles={{
-            control: (base) => ({
-              ...base,
-              boxSizing: "border-box",
-              width: "10rem", // control angosto
-              minWidth: "10rem",
-              maxWidth: "10rem",
-              backgroundColor: "var(--bg)",
-              border: "solid 1px var(--muted)",
-            }),
-            menu: (base) => ({
-              ...base,
-              width: "10rem", // menú más ancho
-              backgroundColor: "var(--bg)",
-              border: "solid 1px var(--muted)",
-              borderRadius: "0.5rem",
-              marginTop: "0.5rem",
-            }),
-            singleValue: (provided) => ({
-              ...provided,
-              maxWidth: "100%", // no permite que se salga del control
-              overflow: "hidden",
-              textOverflow: "ellipsis", // corta con "..."
-              whiteSpace: "nowrap",
-              color: "var(--text-high)",
-              fontFamily: "var(--font-title)",
-              fontWeight: "500",
-            }),
-            option: (provided, state) => ({
-              ...provided,
-              boxContent: "border-box",
-              backgroundColor: state.isFocused
-                ? "var(--primary-700)"
-                : state.isSelected
-                ? "var(--Primary)"
-                : "transparent",
-              color: state.isSelected ? "var(--bg-eleved)" : "var(--text-high)",
-              fontFamily: "var(--font-text)",
-            }),
-          }}
-          classNamePrefix="myselect"
-          value={selected} // opción seleccionada
-          onChange={(e) => {
-            console.log(e);
-            if (e.value === "add") {
-              console.log("hola");
-            } else {
-              setSelected(e);
-            }
-          }} // se llama al cambiar
-          options={playlist} // lista de opciones
-        />
-
         {playlist.map((o, i) => {
           if (o === selected)
             return (
