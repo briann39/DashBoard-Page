@@ -4,7 +4,7 @@ Una aplicación de productividad para escritorio desarrollada con **React**, que
 
 ---
 
-![Status](https://badgen.net/#static/Status/En%20Desarrollo/blue)
+![Status](https://badgen.net/static/Status/En%20Desarrollo/blue)
 
 ---
 
