@@ -3,7 +3,6 @@ import "./App.css";
 
 import { Clock } from "./components/reloj/clock";
 import { MusicController } from "./components/musicController/musicController.jsx";
-import { ToDoList } from "./components/toDoList/toDo.jsx";
 import { Searchmusic } from "./components/musicSearch/musicSearch.jsx";
 import { MiniChatBot } from "./components/miniChatBot/chatBot.jsx";
 
