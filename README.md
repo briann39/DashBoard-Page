@@ -4,12 +4,11 @@ Una aplicación de productividad para escritorio desarrollada con **React**, que
 
 ---
 <!-- Estado del build en desarrollo -->
-<p style="text-align: center;">
+<p style="text-align: center; width: 100%;">
   <img src="https://img.shields.io/badge/build-in%20development-yellow" alt="Build">
   <img src="https://img.shields.io/badge/tests-in%20development-yellow" alt="Tests">
   <img src="https://img.shields.io/badge/version-1.0.0-blue" alt="Version">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="License">
-  <img src="https://img.shields.io/github/last-commit/briann39/DashBiard-Page" alt="Last Commit">
 </p>
 ---
 
