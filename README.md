@@ -3,23 +3,8 @@
 Una aplicación de productividad para escritorio desarrollada con **React**, que integra múltiples herramientas útiles en una sola interfaz: reloj con pomodoro, lista de tareas con categorías, reproductor de música de YouTube, buscador musical y un mini chatbot con IA.
 
 ---
-<!-- Estado del build -->
-![Build](https://img.shields.io/badge/build-passing-brightgreen)
-
-<!-- Estado de pruebas -->
-![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
-
-<!-- Versión del proyecto -->
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
-
-<!-- Licencia -->
-![License](https://img.shields.io/badge/license-MIT-blue)
-
-<!-- Descargas npm -->
-![npm downloads](https://badgen.net/npm/dt/express)
-
-<!-- Última actualización -->
-![Last Commit](https://img.shields.io/github/last-commit/usuario/repositorio)
+<!-- Estado del build en desarrollo -->
+![Build](https://img.shields.io/badge/build-in%20development-yellow) ![Tests](https://img.shields.io/badge/tests-in%20development-yellow) ![Version](https://img.shields.io/badge/version-1.0.0-blue) ![License](https://img.shields.io/badge/license-MIT-blue) ![npm downloads](https://badgen.net/npm/dt/express) ![Last Commit](https://img.shields.io/github/last-commit/briann39/DashBiard-Page)
 
 
 ---
