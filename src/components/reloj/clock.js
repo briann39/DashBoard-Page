@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import beepSound from "./beep-06.mp3";
-
+import { useNotification } from "../../contexts/notificationContext";
 import "./style.css";
 
 export const Clock = () => {
@@ -20,8 +20,10 @@ export const Clock = () => {
   const [minutesWork, setMinutesWork] = useState(25); // Minutos de trabajo
   const [rest, setRest] = useState(false); // true = Descansando | false = Trabajando
 
+  const { showNotification } = useNotification();
+
   // Muestra una notificación del sistema cuando termina un ciclo
-  const showNotification = (title, body) => {
+  const showNotificationDesktop = (title, body) => {
     if (Notification.permission === "granted") {
       new Notification(title, { body });
     }
@@ -61,7 +63,7 @@ export const Clock = () => {
             setRest(true); // Activar descanso
 
             // Enviar notificacion de tiempo terminado
-            showNotification(
+            showNotificationDesktop(
               "⏰ ¡Tiempo terminado!",
               "Es hora de descansar 🚀"
             );
@@ -69,7 +71,10 @@ export const Clock = () => {
             // Si es trabajo
             setRest(false); // Desactivar descanso
             setTimerMinutes(minutesWork); // Colocar los minutos de trabajo
-            showNotification("⏰ ¡Tiempo terminado!", "Es hora de Trabajar 🚀"); // Enivar notificacion de tiempo terminado
+            showNotificationDesktop(
+              "⏰ ¡Tiempo terminado!",
+              "Es hora de Trabajar 🚀"
+            ); // Enivar notificacion de tiempo terminado
           }
           playSound(); // Emitir sonido
           console.log("Temporizador Termiando"); // ------------- LOG ------------ //
@@ -176,8 +181,16 @@ export const Clock = () => {
             </button>
 
             {/* Iniciar / Pausar */}
-            <button onClick={() => setTimerOn((prevTimer) => !prevTimer)}>
-              {"▶"}
+            <button
+              onClick={() => {
+                const active = !timerOn;
+                setTimerOn(active);
+                active
+                  ? showNotification("Pomodoro iniciado")
+                  : showNotification("Pomodoro Pausado");
+              }}
+            >
+              {timerOn ? "⏸" : "▶"}
             </button>
 
             {/* Sumar minutos */}

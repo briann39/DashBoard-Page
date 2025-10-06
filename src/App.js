@@ -2,10 +2,10 @@ import React from "react";
 import "./App.css";
 
 import { Clock } from "./components/reloj/clock";
-import { MusicController } from "./components/music-controller/music-controller.jsx";
-import { ToDoList } from "./components/todolist/todolist.jsx";
-import { Searchmusic } from "./components/music-search/music-search.jsx";
-import { MiniChatBot } from "./components/miniChatBot/mini-chatbot.jsx";
+import { MusicController } from "./components/musicController/musicController.jsx";
+import { ToDoList } from "./components/toDoList/toDo.jsx";
+import { Searchmusic } from "./components/musicSearch/musicSearch.jsx";
+import { MiniChatBot } from "./components/miniChatBot/chatBot.jsx";
 
 const App = () => {
   return (

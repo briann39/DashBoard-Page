@@ -1,4 +1,4 @@
-@import url("../style-general.css");
+@import url("../../styleGeneral.css");
 
 .gadget-pomodoro {
   display: flex;
@@ -17,7 +17,6 @@
   align-items: center;
   justify-content: center;
   margin-top: 1rem;
-  height: 100%;
   width: 100%;
 }
 
@@ -29,6 +28,10 @@
   margin-top: 1rem;
   height: 100%;
   width: 100%;
+}
+
+.clock {
+  height: 100% !important;
 }
 
 .gadget {
@@ -51,7 +54,6 @@
   font-size: 200%;
   text-align: center;
   color: var(--text-high);
-
   font-family: var(--font-text);
   margin: 0;
 }

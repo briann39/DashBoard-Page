@@ -1,70 +1,136 @@
-# Getting Started with Create React App
+# 🧠 AM Productivity Assistant (React)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Una aplicación de productividad para escritorio desarrollada con **React**, que integra múltiples herramientas útiles en una sola interfaz: reloj con pomodoro, lista de tareas con categorías, reproductor de música de YouTube, buscador musical y un mini chatbot con IA.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+![Status][https://badgen.net/#static/Status/En%20Desarrollo/blue]
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Características principales
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 🕒 Reloj + Pomodoro
 
-### `npm test`
+- Reloj en tiempo real.
+- Temporizador Pomodoro con ciclos **cortos y largos**.
+- Notificaciones nativas del navegador.
+- Alarma sonora al finalizar cada ciclo.
+- Personalización de minutos de trabajo y descanso.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### ✅ Lista de tareas
 
-### `npm run build`
+- Crear, eliminar y marcar tareas como completadas.
+- Guardado automático en **LocalStorage**.
+- Posibilidad de **crear categorías personalizadas** para identificar las tareas mediante **colores**.
+- Ordenar las tareas manualmente mediante **drag and drop**.
+- Interfaz simple y clara, tipo lista.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🎵 Controlador de música (YouTube)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Reproductor embebido con la **YouTube IFrame API**.
+- Posibilidad de crear y seleccionar playlists.
+- Guardado automático en **LocalStorage** de playlists.
+- Control de reproducción: play, pause y stop.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 🔍 Buscador de música
 
-### `npm run eject`
+- Busca videos musicales directamente desde YouTube.
+- Permite añadir resultados a tus playlists personalizadas y/o reproducirlas.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 🤖 Mini ChatBot (OpenAI)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Chat simple que utiliza la **API de OpenAI** para responder.
+- Conversaciones cortas dentro de la app.
+- Interfaz ligera y adaptable.
+- Mini memoria local de mensajes
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🧩 Estructura del proyecto
 
-## Learn More
+src/
+│
+├── components/
+│ ├── reloj/
+│ │ ├── clock.jsx
+│ │ └── style.css
+│ ├── todolist/
+│ │ ├── todolist.jsx
+│ │ └── style.css
+│ ├── musicController/
+│ │ ├── musicController.jsx
+│ │ └── style.css
+│ ├── musicSearch/
+│ │ ├── musicSearch.jsx
+│ │ └── style.css
+│ └── miniChatBot/
+│ ├── chatBot.jsx
+│ ├── style.css
+│ └── openIA-API.js
+├── contexts/
+│ ├── videoContext.jsx
+│ └── notificationContext.jsx
+├── styleGeneral.css
+├── App.css
+├── App.jsx
+└── index.js
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## ⚙️ Instalación y ejecución
 
-### Code Splitting
+1. Clonar el repositorio:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```bash
+   git clone https://github.com/tuusuario/productivity-assistant.git
+   cd productivity-assistant
+   ```
 
-### Analyzing the Bundle Size
+2. Instalar dependencias:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   ```bash
+   npm install
 
-### Making a Progressive Web App
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3. Ejecutar en modo desarrollo:
 
-### Advanced Configuration
+   ```bash
+    npm run dev
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+4. Abrir en el navegador:
 
-### Deployment
+   ```arduino
+    http://localhost:3000
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+# 🧠 Tecnologías utilizadas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React.js
+- React Select
+- YouTube IFrame API
+- OpenAI API
+- LocalStorage
+- CSS Modules
+- Vite / Create React App
+
+---
+
+# 📜 Licencia
+
+Este proyecto se distribuye bajo la licencia MIT.
+Podés usarlo, modificarlo o ampliarlo libremente.
+
+---
+
+# 👨‍💻 Autor
+
+Desarrollado por Brian Alvernas Morales
+📧 Contacto: [Mi Portfolio](https://brianalvernas.vercel.app/index_es.html)
+🌐 Proyecto personal orientado a la productividad y desarrollo front-end.
+
+---
