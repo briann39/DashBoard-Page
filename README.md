@@ -4,9 +4,13 @@ Una aplicación de productividad para escritorio desarrollada con **React**, que
 
 ---
 <!-- Estado del build en desarrollo -->
-![Build](https://img.shields.io/badge/build-in%20development-yellow) ![Tests](https://img.shields.io/badge/tests-in%20development-yellow) ![Version](https://img.shields.io/badge/version-1.0.0-blue) ![License](https://img.shields.io/badge/license-MIT-blue) ![npm downloads](https://badgen.net/npm/dt/express) ![Last Commit](https://img.shields.io/github/last-commit/briann39/DashBiard-Page)
-
-
+<p style="text-align: center;">
+  <img src="https://img.shields.io/badge/build-in%20development-yellow" alt="Build">
+  <img src="https://img.shields.io/badge/tests-in%20development-yellow" alt="Tests">
+  <img src="https://img.shields.io/badge/version-1.0.0-blue" alt="Version">
+  <img src="https://img.shields.io/badge/license-MIT-blue" alt="License">
+  <img src="https://img.shields.io/github/last-commit/briann39/DashBiard-Page" alt="Last Commit">
+</p>
 ---
 
 ## 🚀 Características principales
