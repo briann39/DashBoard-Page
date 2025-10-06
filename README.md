@@ -4,7 +4,7 @@ Una aplicación de productividad para escritorio desarrollada con **React**, que
 
 ---
 
-![Status][https://badgen.net/#static/Status/En%20Desarrollo/blue]
+![Status](https://badgen.net/#static/Status/En%20Desarrollo/blue)
 
 ---
 
@@ -49,31 +49,31 @@ Una aplicación de productividad para escritorio desarrollada con **React**, que
 
 ## 🧩 Estructura del proyecto
 
-src/
-│
-├── components/
-│ ├── reloj/
-│ │ ├── clock.jsx
-│ │ └── style.css
-│ ├── todolist/
-│ │ ├── todolist.jsx
-│ │ └── style.css
-│ ├── musicController/
-│ │ ├── musicController.jsx
-│ │ └── style.css
-│ ├── musicSearch/
-│ │ ├── musicSearch.jsx
-│ │ └── style.css
-│ └── miniChatBot/
-│ ├── chatBot.jsx
-│ ├── style.css
-│ └── openIA-API.js
-├── contexts/
-│ ├── videoContext.jsx
-│ └── notificationContext.jsx
-├── styleGeneral.css
-├── App.css
-├── App.jsx
+src/  
+│  
+├── components/  
+│ ├── reloj/  
+│ │ ├── clock.jsx  
+│ │ └── style.css  
+│ ├── todolist/  
+│ │ ├── todolist.jsx  
+│ │ └── style.css  
+│ ├── musicController/  
+│ │ ├── musicController.jsx  
+│ │ └── style.css  
+│ ├── musicSearch/  
+│ │ ├── musicSearch.jsx  
+│ │ └── style.css  
+│ └── miniChatBot/  
+│ ├── chatBot.jsx  
+│ ├── style.css  
+│ └── openIA-API.js  
+├── contexts/  
+│ ├── videoContext.jsx  
+│ └── notificationContext.jsx  
+├── styleGeneral.css  
+├── App.css  
+├── App.jsx  
 └── index.js
 
 ---
@@ -129,8 +129,8 @@ Podés usarlo, modificarlo o ampliarlo libremente.
 
 # 👨‍💻 Autor
 
-Desarrollado por Brian Alvernas Morales
-📧 Contacto: [Mi Portfolio](https://brianalvernas.vercel.app/index_es.html)
+Desarrollado por Brian Alvernas Morales  
+📧 Contacto: [Mi Portfolio](https://brianalvernas.vercel.app/index_es.html)  
 🌐 Proyecto personal orientado a la productividad y desarrollo front-end.
 
 ---
